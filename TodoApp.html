@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Segun's To Do App</title>
+        <link rel="stylesheet" href="lib/Bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="lib/jQuery/jquery.ui.min.css" />
+        <link rel="stylesheet" href="assets/todo.css" />
+        <style type="text/css">
+
+
+
+
+.nano .pane   { background: #888; }
+.nano .slider { background: #111; }
+
+body {
+    background-color: #fafafa !important;
+    border: 0 !important;
+}
+
+#container{
+    margin: 0 auto;
+    width: 1060px;
+    min-height: 100%;
+    background-color: transparent;
+    border: 0;
+}
+
+#header{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.task-list{
+    width: 250px;
+    float: left;
+    margin: 0 5px;
+    background-color: #009688;
+    min-height: 300px;
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+
+.task-list input, .task-list textarea{
+    width: 220px;
+    margin: 1px 5px;
+}
+
+.task-list input{
+    height: 30px;
+}
+
+.todo-task{
+    border-radius: 5px;
+    background-color: #fff;
+    width: 230px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.task-list input[type="button"]{
+    width: 100px;
+    margin: 5px;
+
+}
+
+.todo-task > .task-header{
+    font-weight: bold;
+}
+
+.todo-task > .task-date{
+    font-size: small;
+    font-style: italic;
+}
+
+.todo-task > .task-description{
+    font-size: smaller;
+}
+
+h3{
+    text-align: center;
+}
+
+#delete-div{
+    display: none;
+    background-color: #fff;
+    border: 3px dotted #000;
+    margin: 10px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+}
+    </style>
+</head>
+
+<body>
+<body class="well">
+        <div id="container">
+
+            <div id="header">Simple To Do List </div>
+      <div class="task-list" id="pending">
+        <h3>New Tasks</h3>
+          <div class="todo-task">
+          <div class="task-header">Comms Assignment</div>
+          <div class="task-date">20/01/16</div>
+          <div class="task-description">Daring Greatly reading</div>
+        </div>
+      </div>
+
+      <div class="task-list" id="inProgress">
+        <h3>Ongoing</h3>
+      </div>
+
+      <div class="task-list" id="completed">
+        <h3>Finished</h3>
+      </div>
+
+      <div class="task-list">
+        <h3>Add a task</h3>
+        <form id="todo-form">
+          <input type="text" placeholder="Title" />
+          <textarea placeholder="Descrtipion"></textarea>
+          <input type="text" placeholder="Due Date (dd/mm/yyyy)" />
+          <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                </form>
+
+                <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" />
+
+                <div id="delete-div">
+                    Drag Here to Delete
+                </div>
+      </div>
+      <div style="clear:both;"></div>
+
+          
+          <!-- JQuery -->
+
+           <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+            <script type="text/javascript" src="lib/Bootstrap/bootstrap.min.js"></script>
+            <script type="text/javascript" src="lib/jQuery/jquery.ui.min.js"></script>
+            <script type="text/javascript" src="assets/todo.js"></script>
+           <script type="text/javascript">
+
+
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            
+             
+            </script>
+
+
+
+
+</body>
+</html>
